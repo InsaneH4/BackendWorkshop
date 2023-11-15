@@ -155,6 +155,15 @@
             document.getElementById("ingredient3").value = "";
             document.getElementById("ingredient4").value = "";
             document.getElementById("ingredient5").value = "";
+            //send ingredients to backend
+            fetch('http://127.0.0.1:5000/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({name: recipeName, ingredients: ingredients}),
+            })
+            console.log('Recipe submitted!')
         }
     </script>
 </body>
