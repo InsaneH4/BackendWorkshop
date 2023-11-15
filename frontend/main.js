@@ -1,12 +1,12 @@
 var outputContainer = document.getElementById("output");
 var createMode = true;
-document.getElementById("toggle-mode").addEventListener("change", function () {
-  createMode = !this.checked;
-  updateToggleLabel();
-});
+document.getElementById("toggle-mode").addEventListener("change", updateToggleLabel );
+
 function updateToggleLabel() {
+  createMode = !this.checked;
   var toggleLabel = document.getElementById("toggle-label");
   toggleLabel.innerText = createMode ? "Create" : "Search";
+  console.log("Toggle mode set to " + (createMode ? "Create" : "Search"));
 }
 
 updateToggleLabel();
