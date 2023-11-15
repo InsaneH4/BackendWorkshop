@@ -20,16 +20,35 @@ def hello():
     return 'Hello, World!'
 
 
-@app.route('/submit', methods=['GET', 'POST'])
-def submit():
+@app.route('/add', methods=['GET', 'POST'])
+def add():
     # get data from fetch request body
+    print("Adding recipe...")
     data = request.get_json()
     ingredients = data['ingredients']
     name = data['name']
     print("Recipe: " + name)
     print("Ingredients: " + str(ingredients))
+
     # push to database
+    # daniel code here...
+
     return 'Data received!'
+
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    print("Searching for recipes...")
+    data = request.get_json()
+    ingredients = data['ingredients']
+    name = data['name']
+    print("Recipe: " + name)
+    print("Ingredients: " + str(ingredients))
+
+    # query database for recipie with same name or ingredients
+    # daniel code here...
+
+    return 'Search results!'
 
 
 if __name__ == '__main__':
