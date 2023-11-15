@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
       ", "
     )}`;
     outputContainer.insertBefore(newRecipe, outputContainer.firstChild);
-
     document.getElementById("recipeName").value = "";
     document.getElementById("ingredient1").value = "";
     document.getElementById("ingredient2").value = "";
