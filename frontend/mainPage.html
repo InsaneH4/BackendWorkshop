@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,20 @@
     <link rel="icon" href="path/to/your/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="path/to/your/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="mainPageStyles.css">
+    
 </head>
 <body>
     <div class="container">
         <div class="fieldset-container">
             <fieldset class="details-box">
                 <legend class="header">Enter Recipe Details</legend>
-                <label class="top-input" for="recipeName">Recipe Name:</label>
+                <div id="recipeNameContainer">
+                    <label class="top-input" for="recipeName">Recipe Name:</label>
+                    <div class="toggle-slider-container">
+                        <label for="toggle-mode" id="toggle-label">Create</label>
+                        <input type="checkbox" class="toggle-slider" id="toggle-mode">
+                    </div>
+                </div>
                 <input type="text" class="ingredient-input" id="recipeName" placeholder="Enter Recipe Name">
                 <label for="ingredient1">Ingredient:</label>
                 <input type="text" class="ingredient-input" id="ingredient1" placeholder="Enter Ingredient">
@@ -25,33 +33,17 @@
                 <input type="text" class="ingredient-input" id="ingredient4" placeholder="Enter Ingredient">
                 <label for="ingredient5">Ingredient:</label>
                 <input type="text" class="ingredient-input" id="ingredient5" placeholder="Enter Ingredient">
-                <br>
-                <button class="submit-button" id="submit-button" onclick="submitIngredients()">Submit Recipe</button>
             </fieldset>
+            <button id="submit-button" onclick="submitRecipe()">Submit Recipe</button>
         </div>
         <div id="line"></div>
         <div id="output-container">
             <h2>Recipes:</h2>
             <div id="output">
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
-                <div class="recipe-output"></div>
             </div>
         </div>
     </div>
-
-<script src="mainPagejs.js"></script>
+    <script src="mainPagejs.js"></script>
 </body>
+
 </html>
