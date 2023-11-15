@@ -1,9 +1,17 @@
 from flask import Flask, request
 from flask_cors import CORS
+import mysql.connector
 
 app = Flask(__name__)
-#allows us to use cross origin resource sharing
+# allows us to use cross origin resource sharing
 CORS(app)
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="password",
+)
+
+print(mydb)
 
 
 @app.route('/hello')
@@ -20,7 +28,7 @@ def submit():
     name = data['name']
     print("Recipe: " + name)
     print("Ingredients: " + str(ingredients))
-    #push to database
+    # push to database
     return 'Data received!'
 
 
