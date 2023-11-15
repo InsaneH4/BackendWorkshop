@@ -14,6 +14,11 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            background-image:url('Featured-Image-SP-1200x675.webp');
+            background-size:cover;
+            background-position:center center;
+            background-repeat:no-repeat;
+            backdrop-filter: blur(2px)
         }
         .container {
             display: flex;
@@ -29,10 +34,11 @@
             border-radius: 10px;
             box-sizing: border-box;
             height:80%;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         #line {
             width: 1px;
-            background-color: #ccc;
+            background-color: white;
             height: 100%;
             margin: 0 20px;
             margin-top:5%;
@@ -73,40 +79,46 @@
         }
         .details-box{
             height:95%;
-            padding-top:5%;
+            background-color:white;
+       
         }
         input{
-            
+            margin-top:2%;
         }
-        
+        .submit-button{
+            margin-top:2%;
+        }
+        .header{
+            font-weight:bold;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="fieldset-container">
             <fieldset class="details-box">
-                <legend>Enter Recipe Details</legend>
+                <legend class="header">Enter Recipe Details</legend>
                 <label class="top-input" for="recipeName">Recipe Name:</label>
                 <input type="text" class="ingredient-input" id="recipeName" placeholder="Enter Recipe Name">
-                <label for="ingredient1">Ingredient 1:</label>
-                <input type="text" class="ingredient-input" id="ingredient1" placeholder="Enter Ingredient 1">
-                <label for="ingredient2">Ingredient 2:</label>
-                <input type="text" class="ingredient-input" id="ingredient2" placeholder="Enter Ingredient 2">
-                <label for="ingredient3">Ingredient 3:</label>
-                <input type="text" class="ingredient-input" id="ingredient3" placeholder="Enter Ingredient 3">
-                <label for="ingredient4">Ingredient 4:</label>
-                <input type="text" class="ingredient-input" id="ingredient4" placeholder="Enter Ingredient 4">
-                <label for="ingredient5">Ingredient 5:</label>
-                <input type="text" class="ingredient-input" id="ingredient5" placeholder="Enter Ingredient 5">
+                <label for="ingredient1">Ingredient:</label>
+                <input type="text" class="ingredient-input" id="ingredient1" placeholder="Enter Ingredient">
+                <label for="ingredient2">Ingredient:</label>
+                <input type="text" class="ingredient-input" id="ingredient2" placeholder="Enter Ingredient">
+                <label for="ingredient3">Ingredient:</label>
+                <input type="text" class="ingredient-input" id="ingredient3" placeholder="Enter Ingredient">
+                <label for="ingredient4">Ingredient:</label>
+                <input type="text" class="ingredient-input" id="ingredient4" placeholder="Enter Ingredient">
+                <label for="ingredient5">Ingredient:</label>
+                <input type="text" class="ingredient-input" id="ingredient5" placeholder="Enter Ingredient">
                 <br>
-                <button id="submit-button" onclick="submitIngredients()">Submit Recipe</button>
+                <button class="submit-button" id="submit-button" onclick="submitIngredients()">Submit Recipe</button>
             </fieldset>
         </div>
 
         <div id="line"></div>
 
         <div id="output-container">
-            <h2>Shopping List:</h2>
+            <h2>Recipes:</h2>
             <div id="output">
                 <div class="recipe-output"></div>
                 <div class="recipe-output"></div>
