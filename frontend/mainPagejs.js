@@ -1,26 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     var outputContainer = document.getElementById("output");
-    var createMode = true; // Default to Create Mode
-
+    var createMode = true; 
     document.getElementById("toggle-mode").addEventListener("change", function () {
         createMode = !this.checked;
-        updateToggleLabel(); // Call this function to update the label text
+        updateToggleLabel(); 
     });
-
     function updateToggleLabel() {
         var toggleLabel = document.getElementById("toggle-label");
         toggleLabel.innerText = createMode ? "Create" : "Search";
     }
 
-    // Call the function once to set the initial label text
+ 
     updateToggleLabel();
 
     function submitRecipe() {
         if (createMode) {
-            // Code for submitting a recipe
-            // ... (your existing submitRecipe code)
+          
         } else {
-            // Code for searching recipes
+          
             searchRecipes();
         }
     }
@@ -39,10 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (ingredient4) ingredients.push(ingredient4);
         if (ingredient5) ingredients.push(ingredient5);
 
-        // Clear existing recipes from the output container
+   
         outputContainer.innerHTML = "";
 
-        // Send ingredients to backend for search
         fetch('http://127.0.0.1:5000/search', {
             method: 'POST',
             headers: {
