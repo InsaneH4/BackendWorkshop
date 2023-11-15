@@ -1,5 +1,6 @@
 var outputContainer = document.getElementById("output");
 var createMode = true;
+document.getElementById("toggle-mode").checked = false; 
 document
   .getElementById("toggle-mode")
   .addEventListener("change", updateToggleLabel);
@@ -14,7 +15,7 @@ function updateToggleLabel() {
 updateToggleLabel();
 
 function submitRecipe() {
-  let requestType = createMode ? "add" : "search";    
+  let requestType = createMode ? "add" : "search";
   var outputContainer = document.getElementById("output");
   var recipeName = document.getElementById("recipeName").value;
   var ingredient1 = document.getElementById("ingredient1").value.trim();
@@ -28,12 +29,17 @@ function submitRecipe() {
   if (ingredient3) ingredients.push(ingredient3);
   if (ingredient4) ingredients.push(ingredient4);
   if (ingredient5) ingredients.push(ingredient5);
-  var newRecipe = document.createElement("div");
-  newRecipe.className = "recipe-output";
-  newRecipe.innerHTML = `<strong>${recipeName}:</strong> ${ingredients.join(
-    ", "
-  )}`;
-  outputContainer.insertBefore(newRecipe, outputContainer.firstChild);
+  //adds recipe to frontend if in create mode
+  if (createMode) {
+    var newRecipe = document.createElement("div");
+    newRecipe.className = "recipe-output";
+    newRecipe.innerHTML = `<strong>${recipeName}:</strong> ${ingredients.join(
+      ", "
+    )}`;
+    outputContainer.insertBefore(newRecipe, outputContainer.firstChild);
+  } else {
+    alert("Searching for recipe!");
+  }
 
   document.getElementById("recipeName").value = "";
   document.getElementById("ingredient1").value = "";
