@@ -1,61 +1,37 @@
-function createTextboxes() {
-    // Get the user input for the number of ingredients
-    var ingredientCountInput = document.getElementById("ingredientCount");
-    var ingredientCount = Math.min(ingredientCountInput.value, 5);
+var outputContainer = document.getElementById("output");
+function submitIngredients() {
+    var recipeName = document.getElementById("recipeName").value;
+    var ingredient1 = document.getElementById("ingredient1").value.trim();
+    var ingredient2 = document.getElementById("ingredient2").value.trim();
+    var ingredient3 = document.getElementById("ingredient3").value.trim();
+    var ingredient4 = document.getElementById("ingredient4").value.trim();
+    var ingredient5 = document.getElementById("ingredient5").value.trim();
 
-    // Clear any existing textboxes
-    var textboxesContainer = document.getElementById("textboxes-container");
-    textboxesContainer.innerHTML = '';
+    var ingredients = [];
+    if (ingredient1) ingredients.push(ingredient1);
+    if (ingredient2) ingredients.push(ingredient2);
+    if (ingredient3) ingredients.push(ingredient3);
+    if (ingredient4) ingredients.push(ingredient4);
+    if (ingredient5) ingredients.push(ingredient5);
 
-    // Create new textboxes based on the user input
-    for (var i = 1; i <= ingredientCount; i++) {
-        var input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = "Ingredient " + i;
-        textboxesContainer.appendChild(input);
-    }
-
-    // Add a submit button
-    var submitButton = document.createElement("input");
-    submitButton.type = "submit";
-    submitButton.value = "Submit Ingredients";
-    textboxesContainer.appendChild(submitButton);
-
-    // Handle form submission
-    textboxesContainer.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        // Collect the ingredient data
-        var ingredientData = [];
-        for (var i = 1; i <= ingredientCount; i++) {
-            var ingredientInput = document.querySelector(`#textboxes-container input:nth-child(${i})`);
-            ingredientData.push(ingredientInput.value);
-        }
-
-        // Simulate sending data to a server (replace 'https://example.com/submit' with your actual endpoint)
-        fetch('https://example.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ ingredients: ingredientData }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response if needed
-            console.log('Server response:', data);
-            alert('Data submitted successfully!');
-            
-            // After submission, clear the textboxes
-            textboxesContainer.innerHTML = '';
-            ingredientCountInput.value = ''; // Clear the ingredient count input
-        })
-        .catch(error => {
-            console.error('Error submitting data:', error);
-            alert('Error submitting data. Please try again.');
-        });
-    });
-
-    // Prevent the initial form submission
-    return false;
+    var newRecipe = document.createElement("div");
+    newRecipe.className = "recipe-output";
+    newRecipe.innerHTML = `<strong>${recipeName}:</strong> ${ingredients.join(", ")}`;
+    outputContainer.insertBefore(newRecipe, outputContainer.firstChild);
+    
+    document.getElementById("recipeName").value = "";
+    document.getElementById("ingredient1").value = "";
+    document.getElementById("ingredient2").value = "";
+    document.getElementById("ingredient3").value = "";
+    document.getElementById("ingredient4").value = "";
+    document.getElementById("ingredient5").value = "";
+    //send ingredients to backend
+    fetch('http://127.0.0.1:5000/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({name: recipeName, ingredients: ingredients}),
+    })
+    console.log('thank fuck')
 }
