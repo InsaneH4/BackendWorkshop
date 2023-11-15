@@ -47,6 +47,7 @@ body {
 .ingredient-input {
     margin-bottom: 10px;
     width: calc(100% - 20px); /* Adjusted width to fit the buttons */
+    height:8%;
 }
 #recipeNameContainer {
     display: flex;
