@@ -14,12 +14,7 @@ function updateToggleLabel() {
 updateToggleLabel();
 
 function submitRecipe() {
-  let requestType = "";
-  if (createMode) {
-    requestType = "add";
-  } else {
-    requestType = "search";
-  }
+  let requestType = createMode ? "add" : "search";    
   var outputContainer = document.getElementById("output");
   var recipeName = document.getElementById("recipeName").value;
   var ingredient1 = document.getElementById("ingredient1").value.trim();
@@ -54,7 +49,7 @@ function submitRecipe() {
     },
     body: JSON.stringify({ name: recipeName, ingredients: ingredients }),
   });
-  console.log("Backend request submitted!");
+  console.log(`${requestType} request submitted!`);
 }
 
 function displaySearchResults(results) {
