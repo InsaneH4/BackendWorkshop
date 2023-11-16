@@ -8,6 +8,7 @@ CORS(app)
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
+    #change password depending on whos using it
     password="password",
     database="test"
 
