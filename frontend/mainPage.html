@@ -20,9 +20,9 @@
           <div id="recipeNameContainer">
             <label class="top-input" for="recipeName">Recipe Name:</label>
             <div class="toggle-slider-container">
-              <label for="toggle-mode" id="toggle-label">Create</label>
-              <input type="checkbox" class="toggle-slider" id="toggle-mode" />
-            </div>
+                <input type="checkbox" class="toggle-slider" id="toggle-mode" />
+                <label for="toggle-mode" id="toggle-label" class="toggle-label-animation"></label>
+            </div>            
           </div>
           <input
             type="text"
@@ -65,17 +65,38 @@
             id="ingredient5"
             placeholder="Enter Ingredient"
           />
+          <button id="submit-button" onclick="submitRecipe()">
+            Submit Recipe
+            <div class="arrow-wrapper">
+                <div class="arrow"></div>
+            </div>
+          </button>
         </fieldset>
-        <button id="submit-button" onclick="submitRecipe()">
-          Submit Recipe
-        </button>
       </div>
       <div id="line"></div>
       <div id="output-container">
         <h2>Recipes:</h2>
-        <div id="output"></div>
+        <div id="output">
+            <div class="recipe-output" id="line1"></div>
+                <div class="recipe-output" id="line2"></div>
+                <div class="recipe-output" id="line3"></div>
+                <div class="recipe-output" id="line4"></div>
+                <div class="recipe-output" id="line5"></div>
+                <div class="recipe-output" id="line6"></div>
+                <div class="recipe-output" id="line7"></div>
+                <div class="recipe-output" id="line8"></div>
+                <div class="recipe-output" id="line9"></div>
+                <div class="recipe-output" id="line10"></div>
+                <div class="recipe-output" id="line11"></div>
+                <div class="recipe-output" id="line12"></div>
+                <div class="recipe-output" id="line13"></div>
+                <div class="recipe-output" id="line14"></div>
+                <div class="recipe-output" id="line15"></div>
+                <div class="recipe-output" id="line16"></div>   
+        </div>
       </div>
     </div>
+  
     <script src="mainPage.js"></script>
   </body>
 </html>

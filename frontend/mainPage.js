@@ -1,6 +1,6 @@
 var outputContainer = document.getElementById("output");
 var createMode = true;
-document.getElementById("toggle-mode").addEventListener("change", function () {
+/*document.getElementById("toggle-mode").addEventListener("change", function () {
   createMode = !this.checked;
   updateToggleLabel();
 });
@@ -9,8 +9,9 @@ function updateToggleLabel() {
   toggleLabel.innerText = createMode ? "Create" : "Search";
 }
 
-updateToggleLabel();
 
+updateToggleLabel();
+*/
 function submitRecipe() {
   if (createMode) {
     addRecipe();
@@ -39,7 +40,6 @@ function submitRecipe() {
       ", "
     )}`;
     outputContainer.insertBefore(newRecipe, outputContainer.firstChild);
-
     document.getElementById("recipeName").value = "";
     document.getElementById("ingredient1").value = "";
     document.getElementById("ingredient2").value = "";

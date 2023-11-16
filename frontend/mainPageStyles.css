@@ -4,27 +4,28 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-image: url('Featured-Image-SP-1200x675.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    backdrop-filter: blur(2px)
+    backdrop-filter: blur(2px);
 }
 .container {
     display: flex;
-    width: 80%;
+    width: 90%;
     justify-content: center;
+    height:100%;
 }
 .fieldset-container {
     width: 50%;
-    padding: 3%;
-    margin-top: 5%;
+    padding: 2%;
+    margin-top: 2%;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
-    height: 80%;
-    background-color: rgba(255, 255, 255, 0.5);
+    height: 90%;
+    background-color: rgba(255, 255, 255, 0.65);
     position: relative;
 }
 #line {
@@ -39,54 +40,111 @@ body {
     width: 50%;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 5px;
     box-sizing: border-box;
     overflow-y: auto;
-    background-color: rgb(248, 244, 244);
+    background-color: rgba(248, 247, 244, 0.966);
+}
+input{
+    font-size:100%;
+}
+input::placeholder{
+    font-size:80%;
 }
 .ingredient-input {
     margin-bottom: 10px;
-    width: calc(100% - 20px); /* Adjusted width to fit the buttons */
-    height:8%;
+    width: 98%;
+    height:7%;
 }
 #recipeNameContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+@keyframes slideAway {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(13px); 
+    }
+}
+@keyframes slideIn {
+    0% {
+        transform: translateX(13px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 .toggle-slider-container {
     display: flex;
     align-items: center;
+    --size:60px;
 }
 .toggle-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 60px;
-    height: 34px;
-    background: #ddd;
-    border-radius: 17px;
-    position: relative;
-    margin-left: 10px;
+  -webkit-appearance: none;
+  width: 150px;
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #222;
+  border-radius: 10px 100px 100px 100px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s;
 }
 .toggle-slider:checked {
-    background-color: #4285f4;
-}
-.toggle-slider:before {
-    content: '';
-    position: absolute;
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    border-radius: 50%;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+background-color: #8e88fc;
+  border-radius: 100px 100px 30px 100px;
 }
 .toggle-slider:checked:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+  left: 80%;
+  background-color: #fff;
+  border-radius: 100px 100px 30px 100px;
+}
+.toggle-slider, .toggle-label-animation:hover{
+    cursor:pointer;
+}
+.toggle-label-animation {
+    position: absolute;
+    width: 100px;
+    height: 28px;
+    margin-left:10px;
+    border-radius: 17px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+}
+.toggle-slider:not(:checked) + .toggle-label-animation::before {
+    content: 'Create';
+    animation: slideIn 0.5s ease forwards;
+    transition: background-color 0.5s ease;
+}
+.toggle-slider:before {
+content: "";
+  position: absolute;
+  width: calc(var(--size) / 2);
+  height: calc(var(--size) / 2);
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scale(0.7);
+  border: 3px solid #222;
+  border-radius: 30px 100px 100px 100px;
+  background-color: #8e88fc;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+.toggle-slider:checked + .toggle-label-animation::before {
+    content: 'Search';
+    transform: translateX(0);
+    animation: slideAway 0.5s ease forwards;
+    transition: background-color 0.5s ease;
+    color:white;
 }
 #output {
     padding: 10px 0;
@@ -99,23 +157,69 @@ body {
 .details-box {
     height: 95%;
     background-color: white;
-}
-input {
-    margin-top: 2%;
+    border-radius:5px;
 }
 .header {
     font-weight: bold;
+    font-size:100%;
 }
-#submit-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #b140bb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 2%;
-}
-#submit-button:hover {
-    background-color: #7f45a0;
-}
+button {
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #3731aa;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    width:100%;
+    padding-left:40%;
+    margin-top:1%;
+  }
+  button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  button:hover {
+    background-color: var(--hover-color);
+    cursor:pointer;
+  }
+  button:active{
+    background-color:#1a1666;
+  }
+  button:hover .arrow {
+    background: var(--secondary-color);
+  }
+  button:hover .arrow:before {
+    right: 0;
+  }
