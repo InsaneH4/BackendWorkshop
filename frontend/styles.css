@@ -120,6 +120,8 @@ background-color: #8e88fc;
     justify-content: center;
     overflow: hidden;
     transition: background-color 0.5s ease;
+    font-weight: bold;
+    font-size:90%;
 }
 .toggle-slider:not(:checked) + .toggle-label-animation::before {
     content: 'Create';
