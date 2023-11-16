@@ -43,6 +43,7 @@ body {
     border-radius: 5px;
     box-sizing: border-box;
     overflow-y: auto;
+    overflow-wrap: break-word;
     background-color: rgba(248, 247, 244, 0.966);
 }
 input{
@@ -153,6 +154,7 @@ content: "";
     margin-bottom: 20px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
+    font-size:150%;
 }
 .details-box {
     height: 95%;
