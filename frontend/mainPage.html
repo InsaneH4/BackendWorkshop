@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Book</title>
+    <link rel="icon" href="path/to/your/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="path/to/your/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="fieldset-container">
+        <fieldset class="details-box">
+          <legend class="header">Enter Recipe Details</legend>
+          <div id="recipeNameContainer">
+            <label class="top-input" for="recipeName">Recipe Name:</label>
+            <div class="toggle-slider-container">
+                <input type="checkbox" class="toggle-slider" id="toggle-mode" />
+                <label for="toggle-mode" id="toggle-label" class="toggle-label-animation"></label>
+            </div>            
+          </div>
+          <input
+            type="text"
+            class="ingredient-input"
+            id="recipeName"
+            placeholder="Enter Recipe Name"
+          />
+          <label for="ingredient1">Ingredient:</label>
+          <input
+            type="text"
+            class="ingredient-input"
+            id="ingredient1"
+            placeholder="Enter Ingredient"
+          />
+          <label for="ingredient2">Ingredient:</label>
+          <input
+            type="text"
+            class="ingredient-input"
+            id="ingredient2"
+            placeholder="Enter Ingredient"
+          />
+          <label for="ingredient3">Ingredient:</label>
+          <input
+            type="text"
+            class="ingredient-input"
+            id="ingredient3"
+            placeholder="Enter Ingredient"
+          />
+          <label for="ingredient4">Ingredient:</label>
+          <input
+            type="text"
+            class="ingredient-input"
+            id="ingredient4"
+            placeholder="Enter Ingredient"
+          />
+          <label for="ingredient5">Ingredient:</label>
+          <input
+            type="text"
+            class="ingredient-input"
+            id="ingredient5"
+            placeholder="Enter Ingredient"
+          />
+          <button id="submit-button" onclick="submitRecipe()">
+            Submit Recipe
+            <div class="arrow-wrapper">
+                <div class="arrow"></div>
+            </div>
+          </button>
+        </fieldset>
+      </div>
+      <div id="line"></div>
+      <div id="output-container">
+        <h2>Recipes:</h2>
+        <div id="output">
+            <div class="recipe-output" id="line1"></div>
+                <div class="recipe-output" id="line2"></div>
+                <div class="recipe-output" id="line3"></div>
+                <div class="recipe-output" id="line4"></div>
+                <div class="recipe-output" id="line5"></div>
+                <div class="recipe-output" id="line6"></div>
+                <div class="recipe-output" id="line7"></div>
+                <div class="recipe-output" id="line8"></div>
+                <div class="recipe-output" id="line9"></div>
+                <div class="recipe-output" id="line10"></div>
+                <div class="recipe-output" id="line11"></div>
+                <div class="recipe-output" id="line12"></div>
+                <div class="recipe-output" id="line13"></div>
+                <div class="recipe-output" id="line14"></div>
+                <div class="recipe-output" id="line15"></div>
+                <div class="recipe-output" id="line16"></div>   
+        </div>
+      </div>
+    </div>
+  
+    <script src="mainPage.js"></script>
+  </body>
+</html>
