@@ -8,8 +8,12 @@ CORS(app)
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="password",
+    password="KnightShack",
+    database = "test"
+
 )
+
+stylus = mydb.cursor();
 
 print(mydb)
 
@@ -32,6 +36,13 @@ def add():
 
     # push to database
     # daniel code here...
+    # Adding new Recipe to Database
+    command = "INSERT INTO test (name, ingred1, ingred2, ingred3) VALUES (%s, %s, %s, %s)"
+    data = (name, ingredients[0], ingredients[1],ingredients[2] )
+    stylus.execute(command, data);
+
+    mydb.commit()
+
 
     return 'Data received!'
 
@@ -47,6 +58,15 @@ def search():
 
     # query database for recipie with same name or ingredients
     # daniel code here...
+    # Searching to An Ingredient
+    command = "SELECT * FROM test WHERE ingred1 = %s OR ingred2 = %s OR  ingred3 = %s ORDER BY name"
+    data = (ingredients[0], ingredients[0], ingredients[0])
+    stylus.execute(command,data)
+
+    mydb.commit()
+
+    record = stylus.fetchall()
+
 
     return 'Search results!'
 
