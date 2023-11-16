@@ -1,87 +1,87 @@
 body {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-image: url('Featured-Image-SP-1200x675.webp');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(2px);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-image: url("Featured-Image-SP-1200x675.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(2px);
 }
 .container {
-    display: flex;
-    width: 90%;
-    justify-content: center;
-    height:100%;
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  height: 100%;
 }
 .fieldset-container {
-    width: 50%;
-    padding: 2%;
-    margin-top: 2%;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
-    height: 90%;
-    background-color: rgba(255, 255, 255, 0.65);
-    position: relative;
+  width: 50%;
+  padding: 2%;
+  margin-top: 2%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  height: 90%;
+  background-color: rgba(255, 255, 255, 0.65);
+  position: relative;
 }
 #line {
-    width: 1px;
-    background-color: white;
-    height: 100%;
-    margin: 0 20px;
-    margin-top: 5%;
-    height: 80%;
+  width: 1px;
+  background-color: white;
+  height: 100%;
+  margin: 0 20px;
+  margin-top: 5%;
+  height: 80%;
 }
 #output-container {
-    width: 50%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-wrap: break-word;
-    background-color: rgba(248, 247, 244, 0.966);
+  width: 50%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  background-color: rgba(248, 247, 244, 0.966);
 }
-input{
-    font-size:100%;
+input {
+  font-size: 100%;
 }
-input::placeholder{
-    font-size:80%;
+input::placeholder {
+  font-size: 80%;
 }
 .ingredient-input {
-    margin-bottom: 10px;
-    width: 98%;
-    height:7%;
+  margin-bottom: 10px;
+  width: 98%;
+  height: 7%;
 }
 #recipeNameContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 @keyframes slideAway {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(13px); 
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(13px);
+  }
 }
 @keyframes slideIn {
-    0% {
-        transform: translateX(13px);
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(13px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 .toggle-slider-container {
-    display: flex;
-    align-items: center;
-    --size:60px;
+  display: flex;
+  align-items: center;
+  --size: 60px;
 }
 .toggle-slider {
   -webkit-appearance: none;
@@ -96,7 +96,7 @@ input::placeholder{
   transition: all 0.5s;
 }
 .toggle-slider:checked {
-background-color: #8e88fc;
+  background-color: #8e88fc;
   border-radius: 100px 100px 30px 100px;
 }
 .toggle-slider:checked:before {
@@ -104,32 +104,32 @@ background-color: #8e88fc;
   background-color: #fff;
   border-radius: 100px 100px 30px 100px;
 }
-.toggle-slider, .toggle-label-animation:hover{
-    cursor:pointer;
+.toggle-slider,
+.toggle-label-animation:hover {
+  cursor: pointer;
 }
 .toggle-label-animation {
-    position: absolute;
-    width: 100px;
-    height: 28px;
-    margin-left:10px;
-    border-radius: 17px;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: background-color 0.5s ease;
-    font-weight: bold;
-    font-size:90%;
+  position: absolute;
+  width: 100px;
+  height: 28px;
+  margin-left: 10px;
+  border-radius: 17px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+  font-weight: bold;
+  font-size: 90%;
 }
 .toggle-slider:not(:checked) + .toggle-label-animation::before {
-    content: 'Create';
-    animation: slideIn 0.5s ease forwards;
-    transition: background-color 0.5s ease;
+  animation: slideIn 0.5s ease forwards;
+  transition: background-color 0.5s ease;
 }
 .toggle-slider:before {
-content: "";
+  content: "";
   position: absolute;
   width: calc(var(--size) / 2);
   height: calc(var(--size) / 2);
@@ -143,87 +143,86 @@ content: "";
   transition: all 0.5s;
 }
 .toggle-slider:checked + .toggle-label-animation::before {
-    content: 'Search';
-    transform: translateX(0);
-    animation: slideAway 0.5s ease forwards;
-    transition: background-color 0.5s ease;
-    color:white;
+  transform: translateX(0);
+  animation: slideAway 0.5s ease forwards;
+  transition: background-color 0.5s ease;
+  color: white;
 }
 #output {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 .recipe-output {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    font-size:150%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  font-size: 150%;
 }
 .details-box {
-    height: 95%;
-    background-color: white;
-    border-radius:5px;
+  height: 95%;
+  background-color: white;
+  border-radius: 5px;
 }
 .header {
-    font-weight: bold;
-    font-size:100%;
+  font-weight: bold;
+  font-size: 100%;
 }
 button {
-    --primary-color: #645bff;
-    --secondary-color: #fff;
-    --hover-color: #3731aa;
-    --arrow-width: 10px;
-    --arrow-stroke: 2px;
-    box-sizing: border-box;
-    border: 0;
-    border-radius: 20px;
-    color: var(--secondary-color);
-    padding: 1em 1.8em;
-    background: var(--primary-color);
-    display: flex;
-    transition: 0.2s background;
-    align-items: center;
-    gap: 0.6em;
-    font-weight: bold;
-    width:100%;
-    padding-left:40%;
-    margin-top:1%;
-  }
-  button .arrow-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  button .arrow {
-    margin-top: 1px;
-    width: var(--arrow-width);
-    background: var(--primary-color);
-    height: var(--arrow-stroke);
-    position: relative;
-    transition: 0.2s;
-  }
-  button .arrow::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    border: solid var(--secondary-color);
-    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
-    display: inline-block;
-    top: -3px;
-    right: 3px;
-    transition: 0.2s;
-    padding: 3px;
-    transform: rotate(-45deg);
-  }
-  button:hover {
-    background-color: var(--hover-color);
-    cursor:pointer;
-  }
-  button:active{
-    background-color:#1a1666;
-  }
-  button:hover .arrow {
-    background: var(--secondary-color);
-  }
-  button:hover .arrow:before {
-    right: 0;
-  }
+  --primary-color: #645bff;
+  --secondary-color: #fff;
+  --hover-color: #3731aa;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  width: 100%;
+  padding-left: 40%;
+  margin-top: 1%;
+}
+button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+button .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+button:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+button:active {
+  background-color: #1a1666;
+}
+button:hover .arrow {
+  background: var(--secondary-color);
+}
+button:hover .arrow:before {
+  right: 0;
+}
