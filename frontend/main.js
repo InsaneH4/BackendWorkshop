@@ -9,7 +9,7 @@ document
 function updateToggleLabel() {
   createMode = !this.checked;
   let toggleLabel = document.getElementById("toggle-label");
-  toggleLabel.innerText = createMode ? "Create" : "Search";
+  toggleLabel.innerText = createMode ? "Create" : "Search"; 
   console.log("Toggle mode set to " + (createMode ? "Create" : "Search"));
 }
 
