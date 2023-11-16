@@ -22,6 +22,7 @@ def hello():
     print("Hello, World!")
     return 'Hello, World!'
 
+
 @app.route('/load', methods=['GET', 'POST'])
 def load():
     stylus.execute("SELECT * FROM recipes")
@@ -52,30 +53,6 @@ def add():
     print(record)
 
     return 'Data received!'
-
-
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-    print("Searching for recipes...")
-    data = request.get_json()
-    ingredients = data['ingredients']
-    name = data['name']
-    print("Recipe: " + name)
-    print("Ingredients: " + str(ingredients))
-
-    # query database for recipie with same name or ingredients
-    # daniel code here...
-    # Searching to An Ingredient
-    command = "SELECT * FROM test WHERE ingred1 = %s OR ingred2 = %s OR  ingred3 = %s ORDER BY name"
-    data = (ingredients[0], ingredients[0], ingredients[0])
-    stylus.execute(command, data)
-
-    mydb.commit()
-
-    record = stylus.fetchall()
-    print(record)
-
-    return 'Search results!'
 
 
 if __name__ == '__main__':
