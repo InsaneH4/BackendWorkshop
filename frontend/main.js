@@ -1,15 +1,39 @@
 let outputContainer = document.getElementById("output");
 let createMode = true;
 //sets switch to create mode when page loads
-document.getElementById("toggle-mode").checked = false; 
+document.getElementById("toggle-mode").checked = false;
 document
   .getElementById("toggle-mode")
   .addEventListener("change", updateToggleLabel);
 
+let dbRecipes = [];
+fetch("http://127.0.0.1:5000/load", {
+  method: "GET",
+})
+  .then((response) => response.json())
+  .then((data) => {
+    dbRecipes = data;
+    console.log(dbRecipes);
+  })
+  .then(() => {
+    dbRecipes.forEach((recipe) => {
+      let recipeDiv = document.createElement("div");
+      recipeDiv.className = "recipe-output";
+
+      recipeDiv.innerHTML = `<strong>${recipe[1]}:</strong> ${recipe
+        .slice(2, 7)
+        .join(", ")}`;
+      console.log(
+        recipe[1] + " and " + recipe.slice(2, 7).join(",")
+      );
+      outputContainer.insertBefore(recipeDiv, outputContainer.firstChild);
+    });
+  });
+
 function updateToggleLabel() {
   createMode = !this.checked;
   let toggleLabel = document.getElementById("toggle-label");
-  toggleLabel.innerText = createMode ? "Create" : "Search"; 
+  toggleLabel.innerText = createMode ? "Create" : "Search";
   console.log("Toggle mode set to " + (createMode ? "Create" : "Search"));
 }
 
